@@ -27,11 +27,11 @@ import os
 #    but logging will not be as throrugh in the beginning. 
 from dotenv import dotenv_values
 
-args = sys.argv
-#args = 'eventType: I id: 156508 server: IN01 fileName: test.sh runId: 09n0p severity: V status: 0 ' \
-#    'time: 20221210011729 user: updateTime: message: Ended not OK runAs: MDI_MINISAP_AWS ' \
-#    'subApplication: tma-lambda-snowflake application: tma-data-pipeline jobName: tma-sap ' \
-#    'host: mdi-azure type: R closedByControlM: ticketNumber:1234  runNo: 00001 notes: some'
+#args = sys.argv
+args = 'eventType: I id: 156508 server: IN01 fileName: test.sh runId: 09n0p severity: V status: 0 ' \
+   'time: 20221210011729 user: updateTime: message: Ended not OK runAs: MDI_MINISAP_AWS ' \
+   'subApplication: tma-lambda-snowflake application: tma-data-pipeline jobName: tma-sap ' \
+   'host: mdi-azure type: R closedByControlM: ticketNumber:1234  runNo: 00001 notes: some'
 
 # Initialize logging
 dbg_logger=init_dbg_log()
@@ -80,7 +80,7 @@ try:
     dbg_logger.info('Opening tktvars.json')
     with open('tktvars.json') as config_data:
         config=json.load(config_data)
-        dbg_logger.debug('Config file is ' + str(config))
+        dbg_logger.debug('Config file is ' + str(config_data))
 except FileNotFoundError as e:
     dbg_logger.info('Failed opening tktvars.json')
     dbg_logger.info('Exception: No config file (tktvars.json) found.')
@@ -113,7 +113,7 @@ else:
 
 if (config['pgmvars']['ctmattachlogs'] == 'yes'):
     ctmattachlogs = True
-    dbg_logger.info ('Attaching log and output to the ticket.')
+    dbg_logger.info ('Log and output will be attached to the ticket.')
 else:
     ctmattachlogs = False
     dbg_logger.info ('Log and output will NOT be attached to the ticket.')
