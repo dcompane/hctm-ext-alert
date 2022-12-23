@@ -4,10 +4,12 @@
   "comment02": "IMPORTANT: fields with <field> need to be replaced by real values",
   "ctmvars": {
     "comment12": "next is used for the self-service url in the ticket body",
-    "ctmweb": "http://se-sanb0x.us1.controlm.com",
+    "ctmweb": "se-sanb0x.us1.controlm.com",
     "comment13": "AAPI via REST variables (assuming CTM 21 and higher, or Helix Control-M)",
-    "ctmaapi": "https://se-sanb0x-aapi.us1.controlm.com/automation-api",
-    "ctmtoken": "UFJER0ZQOjRlNTRiMjE3LThjNWItNGI3NC05ZjAyLWFlMjM0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXL2QxNE50eG5PcHU4NmxUL1o1UFRvPQ=="
+    "ctmaapi": "se-sanb0x-aapi.us1.controlm.com/automation-api",
+    "ctmtoken": "UFJER0ZQOjRlNTRiMjE3LThjNWItNGI3NC05ZjAyLWFlMjM0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXL2QxNE50eG5PcHU4NmxUL1o1UFRvPQ==",
+    "comment15": "Platform should be empty or Helix. If different than Helix is assumed on-prem.",
+    "ctmplatform": "Helix"
   },
   "tktvars": {
     "comment20": "These are config vars to access the Incident Management system",
@@ -27,6 +29,9 @@
     "comment33": "Verbose informtion written to autoticket.log file",
     "debug": "yes",
     "comment38": "job output and log is attached to ticket.",
-    "ctmattachlogs": "yes"
+    "ctmattachlogs": "yes",
+    "comment40": "Update alerts (type <> 'I') will not be added to the ticket. Sending updates to cases is NOT IMPLEMENTED",
+    "comment41": "  and will be created as new records. Do not set to yes unless you are sure!",
+    "ctmupdatetkt": "no"
   }
 }
