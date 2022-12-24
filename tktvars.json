@@ -4,10 +4,10 @@
   "comment02": "IMPORTANT: fields with <field> need to be replaced by real values",
   "ctmvars": {
     "comment12": "next is used for the self-service url in the ticket body",
-    "ctmweb": "se-sanb0x.us1.controlm.com",
+    "ctmweb": "test.us1.controlm.com",
     "comment13": "AAPI via REST variables (assuming CTM 21 and higher, or Helix Control-M)",
-    "ctmaapi": "se-sanb0x-aapi.us1.controlm.com/automation-api",
-    "ctmtoken": "UFJER0ZQOjRlNTRiMjE3LThjNWItNGI3NC05ZjAyLWFlMjM0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXL2QxNE50eG5PcHU4NmxUL1o1UFRvPQ==",
+    "ctmaapi": "test-aapi.us1.controlm.com/automation-api",
+    "ctmtoken": "UFJER0ZQQjRlNTRiMjE3fThjNWItNGI3NC05ZjAyLWFlNjN0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXT2QxNE50eG5PcHU4nmxUl1o1UFRvPQ==",
     "comment15": "Platform should be empty or Helix. If different than Helix is assumed on-prem.",
     "ctmplatform": "Helix"
   },

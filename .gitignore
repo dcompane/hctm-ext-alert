@@ -2,3 +2,4 @@ __pycache__
 .vscode
 autoalert.log
 extalert.code-workspace
+tktvars_dco.json
