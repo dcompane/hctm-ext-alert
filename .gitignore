@@ -1,5 +1,9 @@
 __pycache__
 .vscode
+pyproject.toml
+requirements.txt
 autoalert.log
 extalert.code-workspace
+extalert_b*.py
+extalert_s*.py
 tktvars_dco.json
