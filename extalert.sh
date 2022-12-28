@@ -1,5 +1,6 @@
 # /bin/bash
 
-set -v 
+
+set -vx 
 
 $(which python) /home/saasaapi/extalerts/extalert.py $*
