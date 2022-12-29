@@ -175,6 +175,7 @@ def writeFile4Attach(file_name, content, directory, logger):
         finally:
             # Print a message after writing
             logger.debug(f"File {file_2write} written")
+    return file_2write
 
 
 #########################################
