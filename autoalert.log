@@ -1,0 +1,2509 @@
+[2022-12-22 21:45:25,273] - INFO - **************************************************
+[2022-12-22 21:45:25,274] - INFO - **************************************************
+[2022-12-22 21:45:25,275] - INFO - Startup Log setting established
+[2022-12-22 21:45:25,276] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-22 21:45:25,276] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-22 21:45:25,277] - INFO - Opening field_names.json
+[2022-12-22 21:45:25,279] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-22 21:45:25,279] - INFO - Opening tktvars.json
+[2022-12-22 21:45:25,280] - DEBUG - Config file is {'comment00': 'This file must be in the same directory that the script that uses it', 'comment01': 'Numbers in comments are so comments will show up be a valid json', 'comment02': 'IMPORTANT: fields with <field> need to be replaced by real values', 'ctmvars': {'comment12': 'next is used for the self-service url in the ticket body', 'ctmweb': 'http://se-sanb0x.us1.controlm.com', 'comment13': 'AAPI via REST variables (assuming CTM 21 and higher, or Helix Control-M)', 'ctmaapi': 'https://se-sanb0x-aapi.us1.controlm.com/automation-api', 'ctmtoken': 'UFJER0ZQOjRlNTRiMjE3LThjNWItNGI3NC05ZjAyLWFlMjM0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXL2QxNE50eG5PcHU4NmxUL1o1UFRvPQ=='}, 'tktvars': {'comment20': 'These are config vars to access the Incident Management system', 'comment21': 'may need additional customization depending on the ticketing system', 'comment22': 'as this was developed for Service Now', 'tkturl': 'dev67489', 'tktuser': 'ctmtickets', 'tktpasswd': 'O<zV03lN:;>U+*VRJehvYMND4u.Nz2D_s::^ly28d10&jJ2mlH4yt;JRW-*XFK76TN}Tl2-O0L1D!OLiUU.=Q_FH:8[2@3Xf(LAn', 'tktsysidcaller': 'b2b19c9347271110073a8977536d430a'}, 'pgmvars': {'comment30': 'These are program variables for debug and operational purposes.', 'comment31': 'create ticket if yes.', 'crttickets': 'yes', 'comment32': 'Update CTM Alert with ticket number. Feature not available in Helix Control-M October 2022', 'addtkt2alert': 'no', 'comment33': 'Verbose informtion written to autoticket.log file', 'debug': 'yes', 'comment38': 'job output and log is attached to ticket.', 'ctmattachlogs': 'yes'}}
+[2022-12-22 21:47:34,943] - INFO - **************************************************
+[2022-12-22 21:47:34,944] - INFO - **************************************************
+[2022-12-22 21:47:34,946] - INFO - Startup Log setting established
+[2022-12-22 21:47:34,947] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-22 21:47:34,947] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-22 21:47:34,949] - INFO - Opening field_names.json
+[2022-12-22 21:47:34,950] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-22 21:47:34,951] - INFO - Opening tktvars.json
+[2022-12-22 21:47:34,951] - DEBUG - Config file is {'comment00': 'This file must be in the same directory that the script that uses it', 'comment01': 'Numbers in comments are so comments will show up be a valid json', 'comment02': 'IMPORTANT: fields with <field> need to be replaced by real values', 'ctmvars': {'comment12': 'next is used for the self-service url in the ticket body', 'ctmweb': 'http://se-sanb0x.us1.controlm.com', 'comment13': 'AAPI via REST variables (assuming CTM 21 and higher, or Helix Control-M)', 'ctmaapi': 'https://se-sanb0x-aapi.us1.controlm.com/automation-api', 'ctmtoken': 'UFJER0ZQOjRlNTRiMjE3LThjNWItNGI3NC05ZjAyLWFlMjM0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXL2QxNE50eG5PcHU4NmxUL1o1UFRvPQ=='}, 'tktvars': {'comment20': 'These are config vars to access the Incident Management system', 'comment21': 'may need additional customization depending on the ticketing system', 'comment22': 'as this was developed for Service Now', 'tkturl': 'dev67489', 'tktuser': 'ctmtickets', 'tktpasswd': 'O<zV03lN:;>U+*VRJehvYMND4u.Nz2D_s::^ly28d10&jJ2mlH4yt;JRW-*XFK76TN}Tl2-O0L1D!OLiUU.=Q_FH:8[2@3Xf(LAn', 'tktsysidcaller': 'b2b19c9347271110073a8977536d430a'}, 'pgmvars': {'comment30': 'These are program variables for debug and operational purposes.', 'comment31': 'create ticket if yes.', 'crttickets': 'yes', 'comment32': 'Update CTM Alert with ticket number. Feature not available in Helix Control-M October 2022', 'addtkt2alert': 'no', 'comment33': 'Verbose informtion written to autoticket.log file', 'debug': 'yes', 'comment38': 'job output and log is attached to ticket.', 'ctmattachlogs': 'yes'}}
+[2022-12-22 21:48:53,021] - INFO - **************************************************
+[2022-12-22 21:48:53,023] - INFO - **************************************************
+[2022-12-22 21:48:53,024] - INFO - Startup Log setting established
+[2022-12-22 21:48:53,026] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-22 21:48:53,026] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-22 21:48:53,027] - INFO - Opening field_names.json
+[2022-12-22 21:48:53,028] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-22 21:48:53,029] - INFO - Opening tktvars.json
+[2022-12-22 21:48:53,030] - DEBUG - Config file is {'comment00': 'This file must be in the same directory that the script that uses it', 'comment01': 'Numbers in comments are so comments will show up be a valid json', 'comment02': 'IMPORTANT: fields with <field> need to be replaced by real values', 'ctmvars': {'comment12': 'next is used for the self-service url in the ticket body', 'ctmweb': 'http://se-sanb0x.us1.controlm.com', 'comment13': 'AAPI via REST variables (assuming CTM 21 and higher, or Helix Control-M)', 'ctmaapi': 'https://se-sanb0x-aapi.us1.controlm.com/automation-api', 'ctmtoken': 'UFJER0ZQOjRlNTRiMjE3LThjNWItNGI3NC05ZjAyLWFlMjM0ODY3MzEyNDpicTA3eU4wN28wL3YrajZNb1lCUHRXL2QxNE50eG5PcHU4NmxUL1o1UFRvPQ=='}, 'tktvars': {'comment20': 'These are config vars to access the Incident Management system', 'comment21': 'may need additional customization depending on the ticketing system', 'comment22': 'as this was developed for Service Now', 'tkturl': 'dev67489', 'tktuser': 'ctmtickets', 'tktpasswd': 'O<zV03lN:;>U+*VRJehvYMND4u.Nz2D_s::^ly28d10&jJ2mlH4yt;JRW-*XFK76TN}Tl2-O0L1D!OLiUU.=Q_FH:8[2@3Xf(LAn', 'tktsysidcaller': 'b2b19c9347271110073a8977536d430a'}, 'pgmvars': {'comment30': 'These are program variables for debug and operational purposes.', 'comment31': 'create ticket if yes.', 'crttickets': 'yes', 'comment32': 'Update CTM Alert with ticket number. Feature not available in Helix Control-M October 2022', 'addtkt2alert': 'no', 'comment33': 'Verbose informtion written to autoticket.log file', 'debug': 'yes', 'comment38': 'job output and log is attached to ticket.', 'ctmattachlogs': 'yes'}}
+[2022-12-22 21:48:53,032] - INFO - params: eventType: I id: 156508 server: IN01 fileName: test.sh runId: 09n0p severity: V status: 0 time: 20221210011729 user: updateTime: message: Ended not OK runAs: MDI_MINISAP_AWS subApplication: tma-lambda-snowflake application: tma-data-pipeline jobName: tma-sap host: mdi-azure type: R closedByControlM: ticketNumber:1234  runNo: 00001 notes: some
+[2022-12-22 21:48:53,033] - INFO - dict is {'eventType': 'I', 'id': '156508', 'server': 'IN01', 'fileName': 'test.sh', 'runId': '09n0p', 'severity': 'V', 'status': '0', 'time': '20221210011729', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'MDI_MINISAP_AWS', 'subApplication': 'tma-lambda-snowflake', 'application': 'tma-data-pipeline', 'jobName': 'tma-sap', 'host': 'mdi-azure', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '1234', 'runNo': '00001', 'notes': 'some'}
+[2022-12-22 21:48:53,034] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-22 21:48:53,035] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-22 21:48:53,035] - INFO - Attaching log and output to the ticket.
+[2022-12-22 21:48:53,036] - DEBUG - Ticketing URL: dev67489
+[2022-12-22 21:48:53,037] - DEBUG - Ticket category: Service Interruption
+[2022-12-22 21:48:53,037] - DEBUG - Ticket Urgency: 1
+[2022-12-22 21:48:53,037] - DEBUG - Ticket Impact: 2
+[2022-12-22 21:48:53,038] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-22 21:48:53,038] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-22 21:48:53,038] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-22 21:48:53,039] - DEBUG - Ticket Short Description: tma-sap Ended not OK
+[2022-12-23 07:10:45,294] - INFO - **************************************************
+[2022-12-23 07:10:45,295] - INFO - **************************************************
+[2022-12-23 07:10:45,296] - INFO - Startup Log setting established
+[2022-12-23 07:10:45,297] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 07:10:45,299] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 07:10:45,300] - INFO - Opening field_names.json
+[2022-12-23 07:10:45,302] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 07:10:45,303] - INFO - Opening tktvars.json
+[2022-12-23 07:10:45,303] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 07:10:45,305] - INFO - params: eventType: I id: 156508 server: IN01 fileName: test.sh runId: 09n0p severity: V status: 0 time: 20221210011729 user: updateTime: message: Ended not OK runAs: MDI_MINISAP_AWS subApplication: tma-lambda-snowflake application: tma-data-pipeline jobName: tma-sap host: mdi-azure type: R closedByControlM: ticketNumber:1234  runNo: 00001 notes: some
+[2022-12-23 07:10:45,306] - INFO - dict is {'eventType': 'I', 'id': '156508', 'server': 'IN01', 'fileName': 'test.sh', 'runId': '09n0p', 'severity': 'V', 'status': '0', 'time': '20221210011729', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'MDI_MINISAP_AWS', 'subApplication': 'tma-lambda-snowflake', 'application': 'tma-data-pipeline', 'jobName': 'tma-sap', 'host': 'mdi-azure', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '1234', 'runNo': '00001', 'notes': 'some'}
+[2022-12-23 07:10:45,307] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 07:10:45,308] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 07:10:45,308] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 07:10:45,309] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 07:10:45,310] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 07:10:45,310] - DEBUG - Ticket Urgency: 1
+[2022-12-23 07:10:45,310] - DEBUG - Ticket Impact: 2
+[2022-12-23 07:10:45,311] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 07:10:45,311] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 07:10:45,311] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 07:10:45,311] - DEBUG - Ticket Short Description: tma-sap Ended not OK
+[2022-12-23 14:57:15,457] - INFO - **************************************************
+[2022-12-23 14:57:15,700] - INFO - **************************************************
+[2022-12-23 14:57:15,701] - INFO - Startup Log setting established
+[2022-12-23 14:57:15,707] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 14:57:15,708] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 14:57:15,708] - INFO - Opening field_names.json
+[2022-12-23 14:57:15,711] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 14:57:15,713] - INFO - Opening tktvars.json
+[2022-12-23 14:57:15,714] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 14:57:15,715] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 14:57:15,716] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 14:57:15,716] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 14:57:15,718] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 14:57:15,719] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 14:57:15,731] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 14:57:15,731] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 14:57:15,732] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 14:57:15,733] - DEBUG - Ticket Urgency: 1
+[2022-12-23 14:57:15,733] - DEBUG - Ticket Impact: 2
+[2022-12-23 14:57:15,734] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 14:57:15,734] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 14:57:15,736] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 14:57:15,737] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 14:57:20,980] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223225601',
+               'estimated_end_time': ['20221223230600',
+                                      '20221223231120',
+                                      '20221223231640',
+                                      '20221223232200',
+                                      '20221223232720',
+                                      '20221223233240',
+                                      '20221223233800',
+                                      '20221223234320',
+                                      '20221223234840',
+                                      '20221223235400',
+                                      '20221223235920',
+                                      '20221224000440',
+                                      '20221224001000',
+                                      '20221224001520',
+                                      '20221224002040',
+                                      '20221224002600',
+                                      '20221224003120',
+                                      '20221224003640',
+                                      '20221224004200',
+                                      '20221224004720',
+                                      '20221224005240',
+                                      '20221224005800',
+                                      '20221224010320',
+                                      '20221224010840',
+                                      '20221224011400'],
+               'estimated_start_time': ['20221223230100',
+                                        '20221223230620',
+                                        '20221223231140',
+                                        '20221223231700',
+                                        '20221223232220',
+                                        '20221223232740',
+                                        '20221223233300',
+                                        '20221223233820',
+                                        '20221223234340',
+                                        '20221223234900',
+                                        '20221223235420',
+                                        '20221223235940',
+                                        '20221224000500',
+                                        '20221224001020',
+                                        '20221224001540',
+                                        '20221224002100',
+                                        '20221224002620',
+                                        '20221224003140',
+                                        '20221224003700',
+                                        '20221224004220',
+                                        '20221224004740',
+                                        '20221224005300',
+                                        '20221224005820',
+                                        '20221224010340',
+                                        '20221224010900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 25,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223225600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223225600',
+               'estimated_end_time': ['20221223230600',
+                                      '20221223231120',
+                                      '20221223231640',
+                                      '20221223232200',
+                                      '20221223232720',
+                                      '20221223233240',
+                                      '20221223233800',
+                                      '20221223234320',
+                                      '20221223234840',
+                                      '20221223235400',
+                                      '20221223235920',
+                                      '20221224000440',
+                                      '20221224001000',
+                                      '20221224001520',
+                                      '20221224002040',
+                                      '20221224002600',
+                                      '20221224003120',
+                                      '20221224003640',
+                                      '20221224004200',
+                                      '20221224004720',
+                                      '20221224005240',
+                                      '20221224005800',
+                                      '20221224010320',
+                                      '20221224010840',
+                                      '20221224011400'],
+               'estimated_start_time': ['20221223230100',
+                                        '20221223230620',
+                                        '20221223231140',
+                                        '20221223231700',
+                                        '20221223232220',
+                                        '20221223232740',
+                                        '20221223233300',
+                                        '20221223233820',
+                                        '20221223234340',
+                                        '20221223234900',
+                                        '20221223235420',
+                                        '20221223235940',
+                                        '20221224000500',
+                                        '20221224001020',
+                                        '20221224001540',
+                                        '20221224002100',
+                                        '20221224002620',
+                                        '20221224003140',
+                                        '20221224003700',
+                                        '20221224004220',
+                                        '20221224004740',
+                                        '20221224005300',
+                                        '20221224005820',
+                                        '20221224010340',
+                                        '20221224010900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 25,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223225600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 14:59:49,743] - INFO - **************************************************
+[2022-12-23 14:59:49,744] - INFO - **************************************************
+[2022-12-23 14:59:49,745] - INFO - Startup Log setting established
+[2022-12-23 14:59:49,747] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 14:59:49,748] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 14:59:49,748] - INFO - Opening field_names.json
+[2022-12-23 14:59:49,750] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 14:59:49,751] - INFO - Opening tktvars.json
+[2022-12-23 14:59:49,751] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 14:59:49,752] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 14:59:49,752] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 14:59:49,752] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 14:59:49,753] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 14:59:49,753] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 14:59:49,759] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 14:59:49,759] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 14:59:49,759] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 14:59:49,759] - DEBUG - Ticket Urgency: 1
+[2022-12-23 14:59:49,759] - DEBUG - Ticket Impact: 2
+[2022-12-23 14:59:49,760] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 14:59:49,760] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 14:59:49,760] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 14:59:49,760] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 14:59:50,293] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223225601',
+               'estimated_end_time': ['20221223230600',
+                                      '20221223231120',
+                                      '20221223231640',
+                                      '20221223232200',
+                                      '20221223232720',
+                                      '20221223233240',
+                                      '20221223233800',
+                                      '20221223234320',
+                                      '20221223234840',
+                                      '20221223235400',
+                                      '20221223235920',
+                                      '20221224000440',
+                                      '20221224001000',
+                                      '20221224001520',
+                                      '20221224002040',
+                                      '20221224002600',
+                                      '20221224003120',
+                                      '20221224003640',
+                                      '20221224004200',
+                                      '20221224004720',
+                                      '20221224005240',
+                                      '20221224005800',
+                                      '20221224010320',
+                                      '20221224010840',
+                                      '20221224011400'],
+               'estimated_start_time': ['20221223230100',
+                                        '20221223230620',
+                                        '20221223231140',
+                                        '20221223231700',
+                                        '20221223232220',
+                                        '20221223232740',
+                                        '20221223233300',
+                                        '20221223233820',
+                                        '20221223234340',
+                                        '20221223234900',
+                                        '20221223235420',
+                                        '20221223235940',
+                                        '20221224000500',
+                                        '20221224001020',
+                                        '20221224001540',
+                                        '20221224002100',
+                                        '20221224002620',
+                                        '20221224003140',
+                                        '20221224003700',
+                                        '20221224004220',
+                                        '20221224004740',
+                                        '20221224005300',
+                                        '20221224005820',
+                                        '20221224010340',
+                                        '20221224010900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 25,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223225600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223225600',
+               'estimated_end_time': ['20221223230600',
+                                      '20221223231120',
+                                      '20221223231640',
+                                      '20221223232200',
+                                      '20221223232720',
+                                      '20221223233240',
+                                      '20221223233800',
+                                      '20221223234320',
+                                      '20221223234840',
+                                      '20221223235400',
+                                      '20221223235920',
+                                      '20221224000440',
+                                      '20221224001000',
+                                      '20221224001520',
+                                      '20221224002040',
+                                      '20221224002600',
+                                      '20221224003120',
+                                      '20221224003640',
+                                      '20221224004200',
+                                      '20221224004720',
+                                      '20221224005240',
+                                      '20221224005800',
+                                      '20221224010320',
+                                      '20221224010840',
+                                      '20221224011400'],
+               'estimated_start_time': ['20221223230100',
+                                        '20221223230620',
+                                        '20221223231140',
+                                        '20221223231700',
+                                        '20221223232220',
+                                        '20221223232740',
+                                        '20221223233300',
+                                        '20221223233820',
+                                        '20221223234340',
+                                        '20221223234900',
+                                        '20221223235420',
+                                        '20221223235940',
+                                        '20221224000500',
+                                        '20221224001020',
+                                        '20221224001540',
+                                        '20221224002100',
+                                        '20221224002620',
+                                        '20221224003140',
+                                        '20221224003700',
+                                        '20221224004220',
+                                        '20221224004740',
+                                        '20221224005300',
+                                        '20221224005820',
+                                        '20221224010340',
+                                        '20221224010900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 25,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223225600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:02:13,377] - INFO - **************************************************
+[2022-12-23 15:02:13,378] - INFO - **************************************************
+[2022-12-23 15:02:13,379] - INFO - Startup Log setting established
+[2022-12-23 15:02:13,381] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:02:13,382] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:02:13,382] - INFO - Opening field_names.json
+[2022-12-23 15:02:13,384] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:02:13,384] - INFO - Opening tktvars.json
+[2022-12-23 15:02:13,385] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:02:13,385] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:02:13,386] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:02:13,386] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:02:13,387] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:02:13,387] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:02:13,396] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 15:02:13,396] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 15:02:13,396] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:02:13,396] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:02:13,397] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:02:13,397] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:02:13,397] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:02:13,397] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:02:13,397] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:02:13,966] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230101',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230100',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:02:36,016] - INFO - **************************************************
+[2022-12-23 15:02:36,017] - INFO - **************************************************
+[2022-12-23 15:02:36,018] - INFO - Startup Log setting established
+[2022-12-23 15:02:36,021] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:02:36,022] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:02:36,022] - INFO - Opening field_names.json
+[2022-12-23 15:02:36,024] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:02:36,024] - INFO - Opening tktvars.json
+[2022-12-23 15:02:36,025] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:02:36,026] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:02:36,026] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:02:36,026] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:02:36,027] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:02:36,027] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:02:36,033] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 15:02:36,033] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 15:02:36,033] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:02:36,033] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:02:36,033] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:02:36,033] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:02:36,034] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:02:36,034] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:02:36,034] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:02:37,224] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230101',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230100',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:03:38,430] - INFO - **************************************************
+[2022-12-23 15:03:38,431] - INFO - **************************************************
+[2022-12-23 15:03:38,432] - INFO - Startup Log setting established
+[2022-12-23 15:03:38,434] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:03:38,435] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:03:38,435] - INFO - Opening field_names.json
+[2022-12-23 15:03:38,437] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:03:38,437] - INFO - Opening tktvars.json
+[2022-12-23 15:03:38,438] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:03:38,438] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:03:38,438] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:03:38,439] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:03:38,439] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:03:38,439] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:03:38,444] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 15:03:38,444] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 15:03:38,445] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:03:38,445] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:03:38,445] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:03:38,445] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:03:38,445] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:03:38,445] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:03:38,446] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:03:38,969] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230101',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230100',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:04:05,877] - INFO - **************************************************
+[2022-12-23 15:04:05,888] - INFO - **************************************************
+[2022-12-23 15:04:05,890] - INFO - Startup Log setting established
+[2022-12-23 15:04:05,901] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:04:05,908] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:04:05,912] - INFO - Opening field_names.json
+[2022-12-23 15:04:05,921] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:04:05,922] - INFO - Opening tktvars.json
+[2022-12-23 15:04:05,925] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:04:05,926] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:04:05,929] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:04:05,932] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:04:05,934] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:04:05,939] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:04:05,963] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 15:04:05,964] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 15:04:05,965] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:04:05,965] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:04:05,965] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:04:05,966] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:04:05,966] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:04:05,966] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:04:05,967] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:04:06,442] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230101',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230100',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:04:32,161] - INFO - **************************************************
+[2022-12-23 15:04:32,162] - INFO - **************************************************
+[2022-12-23 15:04:32,163] - INFO - Startup Log setting established
+[2022-12-23 15:04:32,166] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:04:32,167] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:04:32,167] - INFO - Opening field_names.json
+[2022-12-23 15:04:32,169] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:04:32,170] - INFO - Opening tktvars.json
+[2022-12-23 15:04:32,172] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:04:32,172] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:04:32,173] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:04:32,173] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:04:32,174] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:04:32,174] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:04:32,184] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ], justMyCode 
+[2022-12-23 15:04:32,184] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': '], justMyCode'}
+[2022-12-23 15:04:32,185] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:04:32,185] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:04:32,185] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:04:32,185] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:04:32,186] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:04:32,186] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:04:32,186] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:04:32,663] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230101',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230100',
+               'estimated_end_time': ['20221223231100',
+                                      '20221223231620',
+                                      '20221223232140',
+                                      '20221223232700',
+                                      '20221223233220',
+                                      '20221223233740',
+                                      '20221223234300',
+                                      '20221223234820',
+                                      '20221223235340',
+                                      '20221223235900',
+                                      '20221224000420',
+                                      '20221224000940',
+                                      '20221224001500',
+                                      '20221224002020',
+                                      '20221224002540',
+                                      '20221224003100',
+                                      '20221224003620',
+                                      '20221224004140',
+                                      '20221224004700',
+                                      '20221224005220',
+                                      '20221224005740',
+                                      '20221224010300',
+                                      '20221224010820',
+                                      '20221224011340',
+                                      '20221224011900'],
+               'estimated_start_time': ['20221223230600',
+                                        '20221223231120',
+                                        '20221223231640',
+                                        '20221223232200',
+                                        '20221223232720',
+                                        '20221223233240',
+                                        '20221223233800',
+                                        '20221223234320',
+                                        '20221223234840',
+                                        '20221223235400',
+                                        '20221223235920',
+                                        '20221224000440',
+                                        '20221224001000',
+                                        '20221224001520',
+                                        '20221224002040',
+                                        '20221224002600',
+                                        '20221224003120',
+                                        '20221224003640',
+                                        '20221224004200',
+                                        '20221224004720',
+                                        '20221224005240',
+                                        '20221224005800',
+                                        '20221224010320',
+                                        '20221224010840',
+                                        '20221224011400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 26,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:04:34,599] - DEBUG - Log of Job: Event Time            Message                                                             	Code
+
+22:16:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:16:00 23-Dec-2022  STARTED AT 20221223221600 ON dc01-saasagsand                        	5101
+22:16:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:16:00 23-Dec-2022  ENDED AT 20221223221600. OSCOMPSTAT 42. RUNCNT 17                   	5100
+22:16:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00017	5169
+22:16:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 17                           	5134
+22:16:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:16:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:16:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:16:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:21:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:21:00 23-Dec-2022  STARTED AT 20221223222100 ON dc01-saasagsand                        	5101
+22:21:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:21:00 23-Dec-2022  ENDED AT 20221223222100. OSCOMPSTAT 42. RUNCNT 18                   	5100
+22:21:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00018	5169
+22:21:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 18                           	5134
+22:21:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:21:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:26:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:26:00 23-Dec-2022  STARTED AT 20221223222600 ON dc01-saasagsand                        	5101
+22:26:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:26:01 23-Dec-2022  ENDED AT 20221223222600. OSCOMPSTAT 42. RUNCNT 19                   	5100
+22:26:01 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00019	5169
+22:26:01 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 19                           	5134
+22:26:01 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:26:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:26:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:26:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:31:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:31:00 23-Dec-2022  STARTED AT 20221223223100 ON dc01-saasagsand                        	5101
+22:31:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:31:00 23-Dec-2022  ENDED AT 20221223223100. OSCOMPSTAT 42. RUNCNT 20                   	5100
+22:31:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00020	5169
+22:31:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 20                           	5134
+22:31:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:36:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:36:00 23-Dec-2022  STARTED AT 20221223223600 ON dc01-saasagsand                        	5101
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:36:00 23-Dec-2022  ENDED AT 20221223223600. OSCOMPSTAT 42. RUNCNT 21                   	5100
+22:36:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00021	5169
+22:36:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 21                           	5134
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:36:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:41:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:41:00 23-Dec-2022  STARTED AT 20221223224100 ON dc01-saasagsand                        	5101
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:41:00 23-Dec-2022  ENDED AT 20221223224100. OSCOMPSTAT 42. RUNCNT 22                   	5100
+22:41:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00022	5169
+22:41:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 22                           	5134
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:41:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:46:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:46:00 23-Dec-2022  STARTED AT 20221223224600 ON dc01-saasagsand                        	5101
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:46:00 23-Dec-2022  ENDED AT 20221223224600. OSCOMPSTAT 42. RUNCNT 23                   	5100
+22:46:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00023	5169
+22:46:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 23                           	5134
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:46:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:51:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:51:00 23-Dec-2022  STARTED AT 20221223225100 ON dc01-saasagsand                        	5101
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:51:00 23-Dec-2022  ENDED AT 20221223225100. OSCOMPSTAT 42. RUNCNT 24                   	5100
+22:51:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00024	5169
+22:51:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 24                           	5134
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:51:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:56:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:56:00 23-Dec-2022  STARTED AT 20221223225600 ON dc01-saasagsand                        	5101
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:56:00 23-Dec-2022  ENDED AT 20221223225600. OSCOMPSTAT 42. RUNCNT 25                   	5100
+22:56:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00025	5169
+22:56:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 25                           	5134
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:56:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:01:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:01:00 23-Dec-2022  STARTED AT 20221223230100 ON dc01-saasagsand                        	5101
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:01:00 23-Dec-2022  ENDED AT 20221223230100. OSCOMPSTAT 42. RUNCNT 26                   	5100
+23:01:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00026	5169
+23:01:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 26                           	5134
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:01:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+
+[2022-12-23 15:04:35,359] - DEBUG - Output of job: + ag_diag-comm
+/home/saasAgSand/ctm/runtime/CMD.00009uja_00o: line 2: ag_diag-comm: command not found
++ id
+uid=2001(saasAgSand) gid=2001(saasAgSand) groups=2001(saasAgSand),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0\
+.c1023
++ uname -a
+Linux dc01 4.18.0-372.19.1.el8_6.x86_64 #1 SMP Tue Aug 2 16:19:42 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
++ exit 42
+
+[2022-12-23 15:04:35,362] - DEBUG - Write data to log file C:\Users\dcompane\AppData\Local\Temp\log_09uja_00024.txt
+[2022-12-23 15:04:35,660] - DEBUG - log data added to the ticket
+[2022-12-23 15:04:35,662] - DEBUG - Write data to output file C:\Users\dcompane\AppData\Local\Temp\output_09uja_00024.txt
+[2022-12-23 15:04:56,461] - DEBUG - output data added to the ticket
+[2022-12-23 15:07:47,044] - INFO - **************************************************
+[2022-12-23 15:07:47,045] - INFO - **************************************************
+[2022-12-23 15:07:47,046] - INFO - Startup Log setting established
+[2022-12-23 15:07:47,048] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:07:47,049] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:07:47,049] - INFO - Opening field_names.json
+[2022-12-23 15:07:47,051] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:07:47,052] - INFO - Opening tktvars.json
+[2022-12-23 15:07:47,053] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:07:47,054] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:07:47,054] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:07:47,055] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:07:47,055] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:07:47,056] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:07:47,062] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ] 
+[2022-12-23 15:07:47,062] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': ']'}
+[2022-12-23 15:07:47,063] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:07:47,063] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:07:47,063] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:07:47,063] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:07:47,064] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:07:47,064] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:07:47,064] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:07:47,756] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230601',
+               'estimated_end_time': ['20221223231600',
+                                      '20221223232120',
+                                      '20221223232640',
+                                      '20221223233200',
+                                      '20221223233720',
+                                      '20221223234240',
+                                      '20221223234800',
+                                      '20221223235320',
+                                      '20221223235840',
+                                      '20221224000400',
+                                      '20221224000920',
+                                      '20221224001440',
+                                      '20221224002000',
+                                      '20221224002520',
+                                      '20221224003040',
+                                      '20221224003600',
+                                      '20221224004120',
+                                      '20221224004640',
+                                      '20221224005200',
+                                      '20221224005720',
+                                      '20221224010240',
+                                      '20221224010800',
+                                      '20221224011320',
+                                      '20221224011840',
+                                      '20221224012400'],
+               'estimated_start_time': ['20221223231100',
+                                        '20221223231620',
+                                        '20221223232140',
+                                        '20221223232700',
+                                        '20221223233220',
+                                        '20221223233740',
+                                        '20221223234300',
+                                        '20221223234820',
+                                        '20221223235340',
+                                        '20221223235900',
+                                        '20221224000420',
+                                        '20221224000940',
+                                        '20221224001500',
+                                        '20221224002020',
+                                        '20221224002540',
+                                        '20221224003100',
+                                        '20221224003620',
+                                        '20221224004140',
+                                        '20221224004700',
+                                        '20221224005220',
+                                        '20221224005740',
+                                        '20221224010300',
+                                        '20221224010820',
+                                        '20221224011340',
+                                        '20221224011900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 27,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230600',
+               'estimated_end_time': ['20221223231600',
+                                      '20221223232120',
+                                      '20221223232640',
+                                      '20221223233200',
+                                      '20221223233720',
+                                      '20221223234240',
+                                      '20221223234800',
+                                      '20221223235320',
+                                      '20221223235840',
+                                      '20221224000400',
+                                      '20221224000920',
+                                      '20221224001440',
+                                      '20221224002000',
+                                      '20221224002520',
+                                      '20221224003040',
+                                      '20221224003600',
+                                      '20221224004120',
+                                      '20221224004640',
+                                      '20221224005200',
+                                      '20221224005720',
+                                      '20221224010240',
+                                      '20221224010800',
+                                      '20221224011320',
+                                      '20221224011840',
+                                      '20221224012400'],
+               'estimated_start_time': ['20221223231100',
+                                        '20221223231620',
+                                        '20221223232140',
+                                        '20221223232700',
+                                        '20221223233220',
+                                        '20221223233740',
+                                        '20221223234300',
+                                        '20221223234820',
+                                        '20221223235340',
+                                        '20221223235900',
+                                        '20221224000420',
+                                        '20221224000940',
+                                        '20221224001500',
+                                        '20221224002020',
+                                        '20221224002540',
+                                        '20221224003100',
+                                        '20221224003620',
+                                        '20221224004140',
+                                        '20221224004700',
+                                        '20221224005220',
+                                        '20221224005740',
+                                        '20221224010300',
+                                        '20221224010820',
+                                        '20221224011340',
+                                        '20221224011900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 27,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:07:49,542] - DEBUG - Log of Job: Event Time            Message                                                             	Code
+
+22:21:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:21:00 23-Dec-2022  STARTED AT 20221223222100 ON dc01-saasagsand                        	5101
+22:21:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:21:00 23-Dec-2022  ENDED AT 20221223222100. OSCOMPSTAT 42. RUNCNT 18                   	5100
+22:21:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00018	5169
+22:21:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 18                           	5134
+22:21:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:21:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:26:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:26:00 23-Dec-2022  STARTED AT 20221223222600 ON dc01-saasagsand                        	5101
+22:26:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:26:01 23-Dec-2022  ENDED AT 20221223222600. OSCOMPSTAT 42. RUNCNT 19                   	5100
+22:26:01 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00019	5169
+22:26:01 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 19                           	5134
+22:26:01 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:26:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:26:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:26:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:31:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:31:00 23-Dec-2022  STARTED AT 20221223223100 ON dc01-saasagsand                        	5101
+22:31:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:31:00 23-Dec-2022  ENDED AT 20221223223100. OSCOMPSTAT 42. RUNCNT 20                   	5100
+22:31:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00020	5169
+22:31:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 20                           	5134
+22:31:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:36:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:36:00 23-Dec-2022  STARTED AT 20221223223600 ON dc01-saasagsand                        	5101
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:36:00 23-Dec-2022  ENDED AT 20221223223600. OSCOMPSTAT 42. RUNCNT 21                   	5100
+22:36:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00021	5169
+22:36:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 21                           	5134
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:36:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:41:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:41:00 23-Dec-2022  STARTED AT 20221223224100 ON dc01-saasagsand                        	5101
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:41:00 23-Dec-2022  ENDED AT 20221223224100. OSCOMPSTAT 42. RUNCNT 22                   	5100
+22:41:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00022	5169
+22:41:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 22                           	5134
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:41:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:46:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:46:00 23-Dec-2022  STARTED AT 20221223224600 ON dc01-saasagsand                        	5101
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:46:00 23-Dec-2022  ENDED AT 20221223224600. OSCOMPSTAT 42. RUNCNT 23                   	5100
+22:46:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00023	5169
+22:46:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 23                           	5134
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:46:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:51:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:51:00 23-Dec-2022  STARTED AT 20221223225100 ON dc01-saasagsand                        	5101
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:51:00 23-Dec-2022  ENDED AT 20221223225100. OSCOMPSTAT 42. RUNCNT 24                   	5100
+22:51:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00024	5169
+22:51:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 24                           	5134
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:51:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:56:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:56:00 23-Dec-2022  STARTED AT 20221223225600 ON dc01-saasagsand                        	5101
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:56:00 23-Dec-2022  ENDED AT 20221223225600. OSCOMPSTAT 42. RUNCNT 25                   	5100
+22:56:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00025	5169
+22:56:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 25                           	5134
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:56:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:01:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:01:00 23-Dec-2022  STARTED AT 20221223230100 ON dc01-saasagsand                        	5101
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:01:00 23-Dec-2022  ENDED AT 20221223230100. OSCOMPSTAT 42. RUNCNT 26                   	5100
+23:01:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00026	5169
+23:01:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 26                           	5134
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:01:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:06:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:06:00 23-Dec-2022  STARTED AT 20221223230600 ON dc01-saasagsand                        	5101
+23:06:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:06:00 23-Dec-2022  ENDED AT 20221223230600. OSCOMPSTAT 42. RUNCNT 27                   	5100
+23:06:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00027	5169
+23:06:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 27                           	5134
+23:06:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:06:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:06:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:06:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+
+[2022-12-23 15:07:50,353] - DEBUG - Output of job: + ag_diag-comm
+/home/saasAgSand/ctm/runtime/CMD.00009uja_00o: line 2: ag_diag-comm: command not found
++ id
+uid=2001(saasAgSand) gid=2001(saasAgSand) groups=2001(saasAgSand),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0\
+.c1023
++ uname -a
+Linux dc01 4.18.0-372.19.1.el8_6.x86_64 #1 SMP Tue Aug 2 16:19:42 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
++ exit 42
+
+[2022-12-23 15:07:50,356] - DEBUG - Write data to log file C:\Users\dcompane\AppData\Local\Temp\log_09uja_00024.txt
+[2022-12-23 15:07:50,653] - DEBUG - log data added to the ticket
+[2022-12-23 15:07:50,655] - DEBUG - Write data to output file C:\Users\dcompane\AppData\Local\Temp\output_09uja_00024.txt
+[2022-12-23 15:07:50,948] - DEBUG - output data added to the ticket
+[2022-12-23 15:08:47,962] - INFO - **************************************************
+[2022-12-23 15:08:47,963] - INFO - **************************************************
+[2022-12-23 15:08:47,964] - INFO - Startup Log setting established
+[2022-12-23 15:08:47,966] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:08:47,967] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:08:47,967] - INFO - Opening field_names.json
+[2022-12-23 15:08:47,969] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:08:47,970] - INFO - Opening tktvars.json
+[2022-12-23 15:08:47,971] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:08:47,971] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:08:47,971] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:08:47,972] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:08:47,972] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:08:47,973] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:08:47,978] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: ] 
+[2022-12-23 15:08:47,978] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': ']'}
+[2022-12-23 15:08:47,978] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:08:47,978] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:08:47,978] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:08:47,978] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:08:47,979] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:08:47,979] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:08:47,979] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:08:48,435] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230601',
+               'estimated_end_time': ['20221223231600',
+                                      '20221223232120',
+                                      '20221223232640',
+                                      '20221223233200',
+                                      '20221223233720',
+                                      '20221223234240',
+                                      '20221223234800',
+                                      '20221223235320',
+                                      '20221223235840',
+                                      '20221224000400',
+                                      '20221224000920',
+                                      '20221224001440',
+                                      '20221224002000',
+                                      '20221224002520',
+                                      '20221224003040',
+                                      '20221224003600',
+                                      '20221224004120',
+                                      '20221224004640',
+                                      '20221224005200',
+                                      '20221224005720',
+                                      '20221224010240',
+                                      '20221224010800',
+                                      '20221224011320',
+                                      '20221224011840',
+                                      '20221224012400'],
+               'estimated_start_time': ['20221223231100',
+                                        '20221223231620',
+                                        '20221223232140',
+                                        '20221223232700',
+                                        '20221223233220',
+                                        '20221223233740',
+                                        '20221223234300',
+                                        '20221223234820',
+                                        '20221223235340',
+                                        '20221223235900',
+                                        '20221224000420',
+                                        '20221224000940',
+                                        '20221224001500',
+                                        '20221224002020',
+                                        '20221224002540',
+                                        '20221224003100',
+                                        '20221224003620',
+                                        '20221224004140',
+                                        '20221224004700',
+                                        '20221224005220',
+                                        '20221224005740',
+                                        '20221224010300',
+                                        '20221224010820',
+                                        '20221224011340',
+                                        '20221224011900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 27,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223230600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223230600',
+               'estimated_end_time': ['20221223231600',
+                                      '20221223232120',
+                                      '20221223232640',
+                                      '20221223233200',
+                                      '20221223233720',
+                                      '20221223234240',
+                                      '20221223234800',
+                                      '20221223235320',
+                                      '20221223235840',
+                                      '20221224000400',
+                                      '20221224000920',
+                                      '20221224001440',
+                                      '20221224002000',
+                                      '20221224002520',
+                                      '20221224003040',
+                                      '20221224003600',
+                                      '20221224004120',
+                                      '20221224004640',
+                                      '20221224005200',
+                                      '20221224005720',
+                                      '20221224010240',
+                                      '20221224010800',
+                                      '20221224011320',
+                                      '20221224011840',
+                                      '20221224012400'],
+               'estimated_start_time': ['20221223231100',
+                                        '20221223231620',
+                                        '20221223232140',
+                                        '20221223232700',
+                                        '20221223233220',
+                                        '20221223233740',
+                                        '20221223234300',
+                                        '20221223234820',
+                                        '20221223235340',
+                                        '20221223235900',
+                                        '20221224000420',
+                                        '20221224000940',
+                                        '20221224001500',
+                                        '20221224002020',
+                                        '20221224002540',
+                                        '20221224003100',
+                                        '20221224003620',
+                                        '20221224004140',
+                                        '20221224004700',
+                                        '20221224005220',
+                                        '20221224005740',
+                                        '20221224010300',
+                                        '20221224010820',
+                                        '20221224011340',
+                                        '20221224011900'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 27,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223230600',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:08:50,130] - DEBUG - Log of Job: Event Time            Message                                                             	Code
+
+22:21:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:21:00 23-Dec-2022  STARTED AT 20221223222100 ON dc01-saasagsand                        	5101
+22:21:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:21:00 23-Dec-2022  ENDED AT 20221223222100. OSCOMPSTAT 42. RUNCNT 18                   	5100
+22:21:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00018	5169
+22:21:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 18                           	5134
+22:21:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:21:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:26:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:26:00 23-Dec-2022  STARTED AT 20221223222600 ON dc01-saasagsand                        	5101
+22:26:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:26:01 23-Dec-2022  ENDED AT 20221223222600. OSCOMPSTAT 42. RUNCNT 19                   	5100
+22:26:01 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00019	5169
+22:26:01 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 19                           	5134
+22:26:01 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:26:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:26:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:26:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:31:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:31:00 23-Dec-2022  STARTED AT 20221223223100 ON dc01-saasagsand                        	5101
+22:31:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:31:00 23-Dec-2022  ENDED AT 20221223223100. OSCOMPSTAT 42. RUNCNT 20                   	5100
+22:31:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00020	5169
+22:31:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 20                           	5134
+22:31:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:31:01 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:36:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:36:00 23-Dec-2022  STARTED AT 20221223223600 ON dc01-saasagsand                        	5101
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:36:00 23-Dec-2022  ENDED AT 20221223223600. OSCOMPSTAT 42. RUNCNT 21                   	5100
+22:36:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00021	5169
+22:36:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 21                           	5134
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:36:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:41:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:41:00 23-Dec-2022  STARTED AT 20221223224100 ON dc01-saasagsand                        	5101
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:41:00 23-Dec-2022  ENDED AT 20221223224100. OSCOMPSTAT 42. RUNCNT 22                   	5100
+22:41:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00022	5169
+22:41:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 22                           	5134
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:41:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:46:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:46:00 23-Dec-2022  STARTED AT 20221223224600 ON dc01-saasagsand                        	5101
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:46:00 23-Dec-2022  ENDED AT 20221223224600. OSCOMPSTAT 42. RUNCNT 23                   	5100
+22:46:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00023	5169
+22:46:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 23                           	5134
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:46:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:51:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:51:00 23-Dec-2022  STARTED AT 20221223225100 ON dc01-saasagsand                        	5101
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:51:00 23-Dec-2022  ENDED AT 20221223225100. OSCOMPSTAT 42. RUNCNT 24                   	5100
+22:51:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00024	5169
+22:51:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 24                           	5134
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:51:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:56:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:56:00 23-Dec-2022  STARTED AT 20221223225600 ON dc01-saasagsand                        	5101
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:56:00 23-Dec-2022  ENDED AT 20221223225600. OSCOMPSTAT 42. RUNCNT 25                   	5100
+22:56:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00025	5169
+22:56:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 25                           	5134
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:56:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:01:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:01:00 23-Dec-2022  STARTED AT 20221223230100 ON dc01-saasagsand                        	5101
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:01:00 23-Dec-2022  ENDED AT 20221223230100. OSCOMPSTAT 42. RUNCNT 26                   	5100
+23:01:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00026	5169
+23:01:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 26                           	5134
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:01:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:06:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:06:00 23-Dec-2022  STARTED AT 20221223230600 ON dc01-saasagsand                        	5101
+23:06:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:06:00 23-Dec-2022  ENDED AT 20221223230600. OSCOMPSTAT 42. RUNCNT 27                   	5100
+23:06:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00027	5169
+23:06:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 27                           	5134
+23:06:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:06:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:06:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:06:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+
+[2022-12-23 15:08:50,791] - DEBUG - Output of job: + ag_diag-comm
+/home/saasAgSand/ctm/runtime/CMD.00009uja_00o: line 2: ag_diag-comm: command not found
++ id
+uid=2001(saasAgSand) gid=2001(saasAgSand) groups=2001(saasAgSand),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0\
+.c1023
++ uname -a
+Linux dc01 4.18.0-372.19.1.el8_6.x86_64 #1 SMP Tue Aug 2 16:19:42 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
++ exit 42
+
+[2022-12-23 15:08:50,793] - DEBUG - Write data to log file C:\Users\dcompane\AppData\Local\Temp\log_09uja_00024.txt
+[2022-12-23 15:08:51,080] - DEBUG - log data added to the ticket
+[2022-12-23 15:08:51,081] - DEBUG - Write data to output file C:\Users\dcompane\AppData\Local\Temp\output_09uja_00024.txt
+[2022-12-23 15:08:51,376] - DEBUG - output data added to the ticket
+[2022-12-23 15:16:42,622] - INFO - **************************************************
+[2022-12-23 15:16:42,624] - INFO - **************************************************
+[2022-12-23 15:16:42,625] - INFO - Startup Log setting established
+[2022-12-23 15:16:42,627] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:16:42,628] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:16:42,628] - INFO - Opening field_names.json
+[2022-12-23 15:16:42,630] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:16:42,631] - INFO - Opening tktvars.json
+[2022-12-23 15:16:42,632] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:16:42,632] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:16:42,633] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:16:42,633] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:16:42,634] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:16:42,635] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:16:42,641] - DEBUG - params: eventType: I id: 159293 server: IN01 fileName:   runId: 00000 severity: R status: 0 time: 20221223231317 user:  updateTime:  message: STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE runAs:  subApplication:   application:   jobName:  host:  type: R closedByControlM:  ticketNumber:  runNo: 00000000000 notes: 
+[2022-12-23 15:16:42,641] - DEBUG - dict is {'eventType': 'I', 'id': '159293', 'server': 'IN01', 'fileName': '', 'runId': '00000', 'severity': 'R', 'status': '0', 'time': '20221223231317', 'user': '', 'updateTime': '', 'message': 'STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE', 'runAs': '', 'subApplication': '', 'application': '', 'jobName': '', 'host': '', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00000000000', 'notes': ''}
+[2022-12-23 15:16:42,641] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:16:42,642] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:16:42,642] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:16:42,642] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:16:42,643] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:16:42,643] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:16:42,643] - DEBUG - Ticket Short Description:  STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE
+[2022-12-23 15:17:10,029] - INFO - **************************************************
+[2022-12-23 15:17:10,031] - INFO - **************************************************
+[2022-12-23 15:17:10,032] - INFO - Startup Log setting established
+[2022-12-23 15:17:10,037] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:17:10,038] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:17:10,039] - INFO - Opening field_names.json
+[2022-12-23 15:17:10,041] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:17:10,042] - INFO - Opening tktvars.json
+[2022-12-23 15:17:10,044] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:17:10,045] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:17:10,045] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:17:10,046] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:17:10,046] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:17:10,047] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:17:10,058] - DEBUG - params: eventType: I id: 159293 server: IN01 fileName:   runId: 00000 severity: R status: 0 time: 20221223231317 user:  updateTime:  message: STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE runAs:  subApplication:   application:   jobName:  host:  type: R closedByControlM:  ticketNumber:  runNo: 00000000000 notes: 
+[2022-12-23 15:17:10,058] - DEBUG - dict is {'eventType': 'I', 'id': '159293', 'server': 'IN01', 'fileName': '', 'runId': '00000', 'severity': 'R', 'status': '0', 'time': '20221223231317', 'user': '', 'updateTime': '', 'message': 'STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE', 'runAs': '', 'subApplication': '', 'application': '', 'jobName': '', 'host': '', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00000000000', 'notes': ''}
+[2022-12-23 15:17:10,058] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:17:10,059] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:17:10,059] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:17:10,059] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:17:10,059] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:17:10,059] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:17:10,060] - DEBUG - Ticket Short Description:  STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE
+[2022-12-23 15:25:28,781] - INFO - **************************************************
+[2022-12-23 15:25:28,783] - INFO - **************************************************
+[2022-12-23 15:25:28,785] - INFO - Startup Log setting established
+[2022-12-23 15:25:28,791] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:25:28,792] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:25:28,794] - INFO - Opening field_names.json
+[2022-12-23 15:25:28,797] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:25:28,799] - INFO - Opening tktvars.json
+[2022-12-23 15:25:28,802] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:25:28,804] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:25:28,805] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:25:28,807] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:25:28,809] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:25:28,811] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:25:28,828] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: 
+[2022-12-23 15:25:28,829] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': ''}
+[2022-12-23 15:25:28,830] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:25:28,830] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:25:28,832] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:25:28,833] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:25:28,834] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:25:28,834] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:25:28,835] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-23 15:25:34,318] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 2,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': [{'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': True,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223232101',
+               'estimated_end_time': ['20221223233100',
+                                      '20221223233620',
+                                      '20221223234140',
+                                      '20221223234700',
+                                      '20221223235220',
+                                      '20221223235740',
+                                      '20221224000300',
+                                      '20221224000820',
+                                      '20221224001340',
+                                      '20221224001900',
+                                      '20221224002420',
+                                      '20221224002940',
+                                      '20221224003500',
+                                      '20221224004020',
+                                      '20221224004540',
+                                      '20221224005100',
+                                      '20221224005620',
+                                      '20221224010140',
+                                      '20221224010700',
+                                      '20221224011220',
+                                      '20221224011740',
+                                      '20221224012300',
+                                      '20221224012820',
+                                      '20221224013340',
+                                      '20221224013900'],
+               'estimated_start_time': ['20221223232600',
+                                        '20221223233120',
+                                        '20221223233640',
+                                        '20221223234200',
+                                        '20221223234720',
+                                        '20221223235240',
+                                        '20221223235800',
+                                        '20221224000320',
+                                        '20221224000840',
+                                        '20221224001400',
+                                        '20221224001920',
+                                        '20221224002440',
+                                        '20221224003000',
+                                        '20221224003520',
+                                        '20221224004040',
+                                        '20221224004600',
+                                        '20221224005120',
+                                        '20221224005640',
+                                        '20221224010200',
+                                        '20221224010720',
+                                        '20221224011240',
+                                        '20221224011800',
+                                        '20221224012320',
+                                        '20221224012840',
+                                        '20221224013400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:',
+               'held': False,
+               'host': 'ctm-server',
+               'job_id': 'IN01:09uj9',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uj9/log',
+               'name': 'DCO_JobThatFails',
+               'number_of_runs': 30,
+               'order_date': '221223',
+               'output_uri': 'Folder has no output',
+               'start_time': '20221223232100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Folder'},
+              {'application': 'DCO',
+               'ctm': 'IN01',
+               'cyclic': False,
+               'deleted': False,
+               'description': '',
+               'end_time': '20221223232100',
+               'estimated_end_time': ['20221223233100',
+                                      '20221223233620',
+                                      '20221223234140',
+                                      '20221223234700',
+                                      '20221223235220',
+                                      '20221223235740',
+                                      '20221224000300',
+                                      '20221224000820',
+                                      '20221224001340',
+                                      '20221224001900',
+                                      '20221224002420',
+                                      '20221224002940',
+                                      '20221224003500',
+                                      '20221224004020',
+                                      '20221224004540',
+                                      '20221224005100',
+                                      '20221224005620',
+                                      '20221224010140',
+                                      '20221224010700',
+                                      '20221224011220',
+                                      '20221224011740',
+                                      '20221224012300',
+                                      '20221224012820',
+                                      '20221224013340',
+                                      '20221224013900'],
+               'estimated_start_time': ['20221223232600',
+                                        '20221223233120',
+                                        '20221223233640',
+                                        '20221223234200',
+                                        '20221223234720',
+                                        '20221223235240',
+                                        '20221223235800',
+                                        '20221224000320',
+                                        '20221224000840',
+                                        '20221224001400',
+                                        '20221224001920',
+                                        '20221224002440',
+                                        '20221224003000',
+                                        '20221224003520',
+                                        '20221224004040',
+                                        '20221224004600',
+                                        '20221224005120',
+                                        '20221224005640',
+                                        '20221224010200',
+                                        '20221224010720',
+                                        '20221224011240',
+                                        '20221224011800',
+                                        '20221224012320',
+                                        '20221224012840',
+                                        '20221224013400'],
+               'folder': 'DCO_JobThatFails',
+               'folder_id': 'IN01:09uj9',
+               'held': False,
+               'host': 'dc01-saasagsand',
+               'job_id': 'IN01:09uja',
+               'job_json': None,
+               'log_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/log',
+               'name': 'DCO_JobThat_Fails',
+               'number_of_runs': 30,
+               'order_date': '221223',
+               'output_uri': 'https://se-sanb0x-nlb.us1.controlm.com/automation-api/run/job/IN01:09uja/output',
+               'start_time': '20221223232100',
+               'status': 'Wait Condition',
+               'sub_application': 'DCO_JobThatFails',
+               'type': 'Command'}],
+ 'total': 2}
+[2022-12-23 15:25:36,064] - DEBUG - Log of Job: Event Time            Message                                                             	Code
+
+22:36:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:36:00 23-Dec-2022  STARTED AT 20221223223600 ON dc01-saasagsand                        	5101
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:36:00 23-Dec-2022  ENDED AT 20221223223600. OSCOMPSTAT 42. RUNCNT 21                   	5100
+22:36:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00021	5169
+22:36:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 21                           	5134
+22:36:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:36:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:36:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:41:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:41:00 23-Dec-2022  STARTED AT 20221223224100 ON dc01-saasagsand                        	5101
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:41:00 23-Dec-2022  ENDED AT 20221223224100. OSCOMPSTAT 42. RUNCNT 22                   	5100
+22:41:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00022	5169
+22:41:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 22                           	5134
+22:41:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:41:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:41:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:46:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:46:00 23-Dec-2022  STARTED AT 20221223224600 ON dc01-saasagsand                        	5101
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:46:00 23-Dec-2022  ENDED AT 20221223224600. OSCOMPSTAT 42. RUNCNT 23                   	5100
+22:46:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00023	5169
+22:46:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 23                           	5134
+22:46:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:46:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:46:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:51:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:51:00 23-Dec-2022  STARTED AT 20221223225100 ON dc01-saasagsand                        	5101
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:51:00 23-Dec-2022  ENDED AT 20221223225100. OSCOMPSTAT 42. RUNCNT 24                   	5100
+22:51:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00024	5169
+22:51:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 24                           	5134
+22:51:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:51:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:51:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+22:56:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+22:56:00 23-Dec-2022  STARTED AT 20221223225600 ON dc01-saasagsand                        	5101
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+22:56:00 23-Dec-2022  ENDED AT 20221223225600. OSCOMPSTAT 42. RUNCNT 25                   	5100
+22:56:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00025	5169
+22:56:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 25                           	5134
+22:56:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+22:56:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+22:56:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:01:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:01:00 23-Dec-2022  STARTED AT 20221223230100 ON dc01-saasagsand                        	5101
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:01:00 23-Dec-2022  ENDED AT 20221223230100. OSCOMPSTAT 42. RUNCNT 26                   	5100
+23:01:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00026	5169
+23:01:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 26                           	5134
+23:01:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:01:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:01:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:06:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:06:00 23-Dec-2022  STARTED AT 20221223230600 ON dc01-saasagsand                        	5101
+23:06:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:06:00 23-Dec-2022  ENDED AT 20221223230600. OSCOMPSTAT 42. RUNCNT 27                   	5100
+23:06:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00027	5169
+23:06:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 27                           	5134
+23:06:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:06:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:06:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:06:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:11:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:11:00 23-Dec-2022  STARTED AT 20221223231100 ON dc01-saasagsand                        	5101
+23:11:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:11:00 23-Dec-2022  ENDED AT 20221223231100. OSCOMPSTAT 42. RUNCNT 28                   	5100
+23:11:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00028	5169
+23:11:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 28                           	5134
+23:11:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:11:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:11:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:11:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:16:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:16:00 23-Dec-2022  STARTED AT 20221223231600 ON dc01-saasagsand                        	5101
+23:16:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:16:00 23-Dec-2022  ENDED AT 20221223231600. OSCOMPSTAT 42. RUNCNT 29                   	5100
+23:16:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00029	5169
+23:16:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 29                           	5134
+23:16:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:16:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:16:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:16:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+23:21:00 23-Dec-2022  SUBMITTED TO dc01-saasagsand                                        	5105
+23:21:00 23-Dec-2022  STARTED AT 20221223232100 ON dc01-saasagsand                        	5101
+23:21:00 23-Dec-2022  JOB STATE CHANGED TO Executing                                      	5120
+23:21:00 23-Dec-2022  ENDED AT 20221223232100. OSCOMPSTAT 42. RUNCNT 30                   	5100
+23:21:00 23-Dec-2022  Message from Agent: /home/saasAgSand/ctm/sysout/CMD.LOG_009uja_00030	5169
+23:21:00 23-Dec-2022  ENDED NOTOK. NUMBER OF FAILURES SET TO 30                           	5134
+23:21:00 23-Dec-2022  JOB STATE CHANGED TO Analyzed                                       	5120
+23:21:01 23-Dec-2022  Job STATE CHANGED TO Post processed                                 	5120
+23:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Rerun DUE TO CYCLIC FOLDER RERUN          	5120
+23:21:02 23-Dec-2022  Job STATE CHANGED TO Wait Scheduling DUE TO CYCLIC FOLDER           	5120
+
+[2022-12-23 15:25:36,828] - DEBUG - Output of job: + ag_diag-comm
+/home/saasAgSand/ctm/runtime/CMD.00009uja_00o: line 2: ag_diag-comm: command not found
++ id
+uid=2001(saasAgSand) gid=2001(saasAgSand) groups=2001(saasAgSand),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0\
+.c1023
++ uname -a
+Linux dc01 4.18.0-372.19.1.el8_6.x86_64 #1 SMP Tue Aug 2 16:19:42 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
++ exit 42
+
+[2022-12-23 15:25:36,831] - DEBUG - Write data to log file C:\Users\dcompane\AppData\Local\Temp\log_09uja_00024.txt
+[2022-12-23 15:25:37,107] - DEBUG - log data added to the ticket
+[2022-12-23 15:25:37,108] - DEBUG - Write data to output file C:\Users\dcompane\AppData\Local\Temp\output_09uja_00024.txt
+[2022-12-23 15:25:37,386] - DEBUG - output data added to the ticket
+[2022-12-23 15:38:14,350] - INFO - **************************************************
+[2022-12-23 15:38:14,352] - INFO - **************************************************
+[2022-12-23 15:38:14,352] - INFO - Startup Log setting established
+[2022-12-23 15:38:14,355] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:38:14,356] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:38:14,356] - INFO - Opening field_names.json
+[2022-12-23 15:38:14,358] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:38:14,358] - INFO - Opening tktvars.json
+[2022-12-23 15:38:14,359] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:38:14,359] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:38:14,360] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:38:14,360] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:38:14,360] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:38:14,361] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:38:14,367] - DEBUG - params: eventType: I id: 159293 server: IN01 fileName:   runId: 00000 severity: R status: 0 time: 20221223231317 user:  updateTime:  message: STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE runAs:  subApplication:   application:   jobName:  host:  type: R closedByControlM:  ticketNumber:  runNo: 00000000000 notes: 
+[2022-12-23 15:38:14,367] - DEBUG - dict is {'eventType': 'I', 'id': '159293', 'server': 'IN01', 'fileName': '', 'runId': '00000', 'severity': 'R', 'status': '0', 'time': '20221223231317', 'user': '', 'updateTime': '', 'message': 'STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE', 'runAs': '', 'subApplication': '', 'application': '', 'jobName': '', 'host': '', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00000000000', 'notes': ''}
+[2022-12-23 15:38:14,367] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:38:14,367] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:38:14,367] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:38:14,368] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:38:14,368] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:38:14,368] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:38:14,368] - DEBUG - Ticket Short Description:  STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE
+[2022-12-23 15:39:13,054] - INFO - **************************************************
+[2022-12-23 15:39:13,056] - INFO - **************************************************
+[2022-12-23 15:39:13,056] - INFO - Startup Log setting established
+[2022-12-23 15:39:13,059] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-23 15:39:13,059] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-23 15:39:13,060] - INFO - Opening field_names.json
+[2022-12-23 15:39:13,061] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-23 15:39:13,062] - INFO - Opening tktvars.json
+[2022-12-23 15:39:13,063] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-23 15:39:13,064] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-23 15:39:13,064] - INFO - Log and output will be attached to the ticket.
+[2022-12-23 15:39:13,064] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-23 15:39:13,065] - INFO - Updates will NOT be sent to the system.
+[2022-12-23 15:39:13,065] - DEBUG - Ticketing URL: dev67489
+[2022-12-23 15:39:13,071] - DEBUG - params: eventType: I id: 159293 server: IN01 fileName:   runId: 00000 severity: R status: 0 time: 20221223231317 user:  updateTime:  message: STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE runAs:  subApplication:   application:   jobName:  host:  type: R closedByControlM:  ticketNumber:  runNo: 00000000000 notes: 
+[2022-12-23 15:39:13,071] - DEBUG - dict is {'eventType': 'I', 'id': '159293', 'server': 'IN01', 'fileName': '', 'runId': '00000', 'severity': 'R', 'status': '0', 'time': '20221223231317', 'user': '', 'updateTime': '', 'message': 'STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE', 'runAs': '', 'subApplication': '', 'application': '', 'jobName': '', 'host': '', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00000000000', 'notes': ''}
+[2022-12-23 15:39:13,071] - DEBUG - Ticket category: Service Interruption
+[2022-12-23 15:39:13,072] - DEBUG - Ticket Urgency: 1
+[2022-12-23 15:39:13,072] - DEBUG - Ticket Impact: 2
+[2022-12-23 15:39:13,072] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-23 15:39:13,072] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-23 15:39:13,073] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-23 15:39:13,073] - DEBUG - Ticket Short Description:  STATUS OF AGENT PLATFORM dco_win_bmc CHANGED TO UNAVAILABLE
+[2022-12-26 11:15:06,065] - INFO - **************************************************
+[2022-12-26 11:15:06,067] - INFO - **************************************************
+[2022-12-26 11:15:06,068] - INFO - Startup Log setting established
+[2022-12-26 11:15:06,069] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 11:15:06,070] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 11:15:06,072] - INFO - Opening field_names.json
+[2022-12-26 11:15:06,073] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 11:15:06,073] - INFO - Opening tktvars.json
+[2022-12-26 11:15:06,074] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-26 11:15:59,418] - INFO - **************************************************
+[2022-12-26 11:15:59,420] - INFO - **************************************************
+[2022-12-26 11:15:59,421] - INFO - Startup Log setting established
+[2022-12-26 11:15:59,423] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 11:15:59,423] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 11:16:13,253] - INFO - Opening field_names.json
+[2022-12-26 11:16:13,258] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 11:16:32,288] - INFO - Opening tktvars.json
+[2022-12-26 11:17:03,736] - INFO - **************************************************
+[2022-12-26 11:17:03,737] - INFO - **************************************************
+[2022-12-26 11:17:03,739] - INFO - Startup Log setting established
+[2022-12-26 11:17:03,740] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 11:17:03,741] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 11:17:07,507] - INFO - Opening field_names.json
+[2022-12-26 11:17:07,510] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 11:17:11,039] - INFO - Opening tktvars.json
+[2022-12-26 11:17:24,521] - INFO - **************************************************
+[2022-12-26 11:17:24,522] - INFO - **************************************************
+[2022-12-26 11:17:24,523] - INFO - Startup Log setting established
+[2022-12-26 11:17:24,524] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 11:17:24,524] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 11:17:26,164] - INFO - Opening field_names.json
+[2022-12-26 11:17:26,167] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 11:17:27,828] - INFO - Opening tktvars.json
+[2022-12-26 23:03:09,618] - INFO - **************************************************
+[2022-12-26 23:03:09,618] - INFO - **************************************************
+[2022-12-26 23:03:09,618] - INFO - Startup Log setting established
+[2022-12-26 23:03:09,626] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 23:03:09,626] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 23:03:09,626] - INFO - Opening field_names.json
+[2022-12-26 23:03:09,626] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 23:03:09,626] - INFO - Opening tktvars.json
+[2022-12-26 23:03:09,632] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-26 23:03:09,632] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-26 23:03:09,632] - INFO - Log and output will be attached to the ticket.
+[2022-12-26 23:03:09,634] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-26 23:03:09,634] - INFO - Updates will NOT be sent to the system.
+[2022-12-26 23:03:09,638] - DEBUG - Connecting to AAPI
+[2022-12-26 23:03:09,643] - DEBUG - params: 
+[2022-12-26 23:03:09,644] - DEBUG - dict is {}
+[2022-12-26 23:03:09,644] - DEBUG - Ticket category: Service Interruption
+[2022-12-26 23:03:09,644] - DEBUG - Ticket Urgency: 1
+[2022-12-26 23:03:09,644] - DEBUG - Ticket Impact: 2
+[2022-12-26 23:03:09,644] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-26 23:03:09,644] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-26 23:03:09,648] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-26 23:04:28,623] - INFO - **************************************************
+[2022-12-26 23:04:28,623] - INFO - **************************************************
+[2022-12-26 23:04:28,623] - INFO - Startup Log setting established
+[2022-12-26 23:04:28,623] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 23:04:28,631] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 23:04:28,631] - INFO - Opening field_names.json
+[2022-12-26 23:04:28,639] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 23:04:28,639] - INFO - Opening tktvars.json
+[2022-12-26 23:04:28,639] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-26 23:04:28,639] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-26 23:04:28,639] - INFO - Log and output will be attached to the ticket.
+[2022-12-26 23:04:28,639] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-26 23:04:28,639] - INFO - Updates will NOT be sent to the system.
+[2022-12-26 23:04:28,647] - DEBUG - Connecting to AAPI
+[2022-12-26 23:04:28,647] - DEBUG - params: 
+[2022-12-26 23:04:28,647] - DEBUG - dict is {}
+[2022-12-26 23:04:28,647] - DEBUG - Ticket category: Service Interruption
+[2022-12-26 23:04:28,647] - DEBUG - Ticket Urgency: 1
+[2022-12-26 23:04:28,647] - DEBUG - Ticket Impact: 2
+[2022-12-26 23:04:28,655] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-26 23:04:28,655] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-26 23:04:28,655] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-26 23:04:41,356] - INFO - **************************************************
+[2022-12-26 23:04:41,356] - INFO - **************************************************
+[2022-12-26 23:04:41,356] - INFO - Startup Log setting established
+[2022-12-26 23:04:41,359] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 23:04:41,359] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 23:04:41,359] - INFO - Opening field_names.json
+[2022-12-26 23:04:41,362] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 23:04:41,363] - INFO - Opening tktvars.json
+[2022-12-26 23:04:41,363] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-26 23:04:41,365] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-26 23:04:41,365] - INFO - Log and output will be attached to the ticket.
+[2022-12-26 23:04:41,365] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-26 23:04:41,367] - INFO - Updates will NOT be sent to the system.
+[2022-12-26 23:04:41,367] - DEBUG - Connecting to AAPI
+[2022-12-26 23:04:41,373] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: 
+[2022-12-26 23:04:41,373] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': ''}
+[2022-12-26 23:04:41,373] - DEBUG - Ticket category: Service Interruption
+[2022-12-26 23:04:41,373] - DEBUG - Ticket Urgency: 1
+[2022-12-26 23:04:41,373] - DEBUG - Ticket Impact: 2
+[2022-12-26 23:04:41,373] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-26 23:04:41,373] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-26 23:04:41,373] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-26 23:04:41,373] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-26 23:04:41,373] - DEBUG - Connecting to AAPI
+[2022-12-26 23:04:41,373] - INFO - Alert is job alert.
+[2022-12-26 23:05:57,339] - INFO - **************************************************
+[2022-12-26 23:05:57,339] - INFO - **************************************************
+[2022-12-26 23:05:57,347] - INFO - Startup Log setting established
+[2022-12-26 23:05:57,349] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 23:05:57,349] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 23:05:57,349] - INFO - Opening field_names.json
+[2022-12-26 23:05:57,353] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 23:05:57,355] - INFO - Opening tktvars_dco.json
+[2022-12-26 23:05:57,355] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars.json' mode='r' encoding='cp1252'>
+[2022-12-26 23:05:57,355] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-26 23:05:57,359] - INFO - Log and output will be attached to the ticket.
+[2022-12-26 23:05:57,360] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-26 23:05:57,360] - INFO - Updates will NOT be sent to the system.
+[2022-12-26 23:05:57,360] - DEBUG - Connecting to AAPI
+[2022-12-26 23:05:57,364] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: 
+[2022-12-26 23:05:57,364] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': ''}
+[2022-12-26 23:05:57,364] - DEBUG - Ticket category: Service Interruption
+[2022-12-26 23:05:57,364] - DEBUG - Ticket Urgency: 1
+[2022-12-26 23:05:57,364] - DEBUG - Ticket Impact: 2
+[2022-12-26 23:05:57,364] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-26 23:05:57,364] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-26 23:05:57,364] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-26 23:05:57,372] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-26 23:05:57,373] - DEBUG - Connecting to AAPI
+[2022-12-26 23:05:57,374] - INFO - Alert is job alert.
+[2022-12-26 23:07:02,142] - INFO - **************************************************
+[2022-12-26 23:07:02,142] - INFO - **************************************************
+[2022-12-26 23:07:02,146] - INFO - Startup Log setting established
+[2022-12-26 23:07:02,149] - INFO - file ".env.debug" was loaded. Setting debug to true.
+[2022-12-26 23:07:02,149] - INFO - Startup logging to file level adjusted to debug (verbose)
+[2022-12-26 23:07:02,149] - INFO - Opening field_names.json
+[2022-12-26 23:07:02,156] - DEBUG - Fields file is {'fields': [{'eventType': 'eventType'}, {'id': 'id'}, {'server': 'server'}, {'fileName': 'fileName'}, {'runId': 'runId'}, {'severity': 'severity'}, {'status': 'status'}, {'time': 'time'}, {'user': 'user'}, {'updateTime': 'updateTime'}, {'message': 'message'}, {'runAs': 'runAs'}, {'subApplication': 'subApplication'}, {'application': 'application'}, {'jobName': 'jobName'}, {'host': 'host'}, {'type': 'type'}, {'closedByControlM': 'closedByControlM'}, {'ticketNumber': 'ticketNumber'}, {'runNo': 'runNo'}, {'notes': 'notes'}]}
+[2022-12-26 23:07:02,156] - INFO - Opening tktvars_dco.json
+[2022-12-26 23:07:02,169] - DEBUG - Config file is <_io.TextIOWrapper name='tktvars_dco.json' mode='r' encoding='cp1252'>
+[2022-12-26 23:07:02,169] - DEBUG - Startup logging level adjusted to debug by Config File
+[2022-12-26 23:07:02,169] - INFO - Log and output will be attached to the ticket.
+[2022-12-26 23:07:02,169] - INFO - Ticket ID will NOT be added to the alert.
+[2022-12-26 23:07:02,172] - INFO - Updates will NOT be sent to the system.
+[2022-12-26 23:07:02,173] - DEBUG - Connecting to AAPI
+[2022-12-26 23:07:02,173] - DEBUG - params: eventType: I id: 159287 server: IN01 fileName:   runId: 09uja severity: V status: 0 time: 20221223225102 user:  updateTime:  message: Ended not OK runAs: saasAgSand subApplication: DCO_JobThatFails application: DCO jobName: DCO_JobThat_Fails host: dc01-saasagsand type: R closedByControlM:  ticketNumber:  runNo: 00024 notes: 
+[2022-12-26 23:07:02,173] - DEBUG - dict is {'eventType': 'I', 'id': '159287', 'server': 'IN01', 'fileName': '', 'runId': '09uja', 'severity': 'V', 'status': '0', 'time': '20221223225102', 'user': '', 'updateTime': '', 'message': 'Ended not OK', 'runAs': 'saasAgSand', 'subApplication': 'DCO_JobThatFails', 'application': 'DCO', 'jobName': 'DCO_JobThat_Fails', 'host': 'dc01-saasagsand', 'type': 'R', 'closedByControlM': '', 'ticketNumber': '', 'runNo': '00024', 'notes': ''}
+[2022-12-26 23:07:02,173] - DEBUG - Ticket category: Service Interruption
+[2022-12-26 23:07:02,173] - DEBUG - Ticket Urgency: 1
+[2022-12-26 23:07:02,173] - DEBUG - Ticket Impact: 2
+[2022-12-26 23:07:02,173] - DEBUG - Ticket watchlist (SNow specific: dcompane@gmail.com
+[2022-12-26 23:07:02,173] - DEBUG - Ticket worklist (SNow specific: dcompazrctm@gmail.com
+[2022-12-26 23:07:02,173] - DEBUG - Ticket assigned group (SNow specific): CTM GROUP
+[2022-12-26 23:07:02,180] - DEBUG - Ticket Short Description: DCO_JobThat_Fails Ended not OK
+[2022-12-26 23:07:02,182] - DEBUG - Connecting to AAPI
+[2022-12-26 23:07:02,182] - INFO - Alert is job alert.
+[2022-12-26 23:07:03,187] - DEBUG - Status of job: {'items_per_page': None,
+ 'monitor_page_uri': None,
+ 'next_uri': None,
+ 'prev_uri': None,
+ 'returned': 0,
+ 'sort': None,
+ 'start_index': None,
+ 'statuses': None,
+ 'total': 0}
