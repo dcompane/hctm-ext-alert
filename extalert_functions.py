@@ -84,7 +84,9 @@ def init_dbg_log():
 # Write DBG info on assigning variable
 #########################################
 def dbg_assign_var(to_assign, what_is_this,logger):
-    logger.debug (f'{what_is_this}: {to_assign}')
+    if config['DEBUG'] :
+        logger.debug (f'{what_is_this}: {to_assign}') 
+
     return to_assign
 
 
