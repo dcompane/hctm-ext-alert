@@ -14,6 +14,8 @@ from aapi import *
 
 # Importing functions
 from extalert_functions import *
+from extalert_BHITSM import *
+from extalert_snow import *
 
 
 # To see if we need to set initial debug. If not, can be set at tktvars,
@@ -34,15 +36,15 @@ class tkt_data:
         self.tkt_urgency     = dbg_assign_var('1', 'Ticket Urgency', dbg_logger)
         self.tkt_impact      = dbg_assign_var('2', 'Ticket Impact', dbg_logger)
         self.tkt_assigned_group = dbg_assign_var('CTM GROUP', 'Ticket assigned group (SNow specific)', dbg_logger)
+        self.tkt_short_description = dbg_assign_var(f"{alert[keywords_json['jobName']]}-{alert[keywords_json['message']]}",
+                                'Ticket Short Description', dbg_logger)
 
-
+        # Solution specific variables
         if tkt_sol.split('vars')[0] == 'BHITSM':
             self.tkt_verify_ssl  = dbg_assign_var(True if config[tkt_solution]['verifySSL'] == 'yes' else False, 'Verify SSL on REST request', dbg_logger)
             
         elif tkt_sol.split('vars')[0] == 'SNOW':
             self.tkt_id_caller   = dbg_assign_var(config[tkt_sol]['tktsysidcaller'],'',dbg_logger)
-            self.tkt_short_description = dbg_assign_var(f"{alert[keywords_json['jobName']]}-{alert[keywords_json['message']]}",
-                                'Ticket Short Description', dbg_logger)
             self.tkt_watch_list  = dbg_assign_var('emailofwatch@somedomain.com', 'Ticket watchlist (SNow specific)', dbg_logger)
             self.tkt_work_list   = dbg_assign_var('emailofwork@somedomain.com', 'Ticket worklist (SNow specific)', dbg_logger)
 
@@ -173,74 +175,42 @@ if ctmupdatetkt and (alert[keywords_json['eventType']] != "I"):
     exitrc = 24
     sys.exit(exitrc)
 
-
-#### Build Ticket fields
-tkt_category=dbg_assign_var('Service Interruption', 'Ticket category', dbg_logger)
-tkt_urgency=dbg_assign_var('1', 'Ticket Urgency', dbg_logger)
-tkt_impact=dbg_assign_var('2', 'Ticket Impact', dbg_logger)
-tkt_watch_list=dbg_assign_var('dcompane@gmail.com', 'Ticket watchlist (SNow specific', dbg_logger)
-tkt_work_list=dbg_assign_var('dcompazrctm@gmail.com', 'Ticket worklist (SNow specific', dbg_logger)
-tkt_assigned_group=dbg_assign_var('CTM GROUP', 'Ticket assigned group (SNow specific)', dbg_logger)
-tkt_short_description=dbg_assign_var(f"{alert[keywords_json['jobName']]} {alert[keywords_json['message']]}",
-                        'Ticket Short Description', dbg_logger)
-
 # Configure Helix Control-M AAPI client
 monitor = ctmConnAAPI(host_name, api_token, dbg_logger)
 
 # If the alert is about a job
 alert_is_job = False
-if(alert[keywords_json['runId']] != '00000'):
-    dbg_logger.info("Alert is job alert.")
+output_file = None
+log_file = None
+if alert[keywords_json['runId']] != '00000':
+    dbg_logger.debug("Alert is job alert.")
     alert_is_job = True
-    monitor = ctmConnAAPI(host_name, api_token, dbg_logger)
     status = dbg_assign_var(monitor.get_statuses(
             filter={"jobid": f"{alert[keywords_json['server']]}:{alert[keywords_json['runId']]}"}), 
             "Status of job", dbg_logger)
 
-    tkt_comments =  \
-            f"Agent Name                  : {alert[keywords_json['host']]} \n" + \
-            f"Folder Name                 : {status.statuses[0].folder} \n" + \
-            f"Job Name                    : {alert[keywords_json['jobName']]} \n" + \
-            f"Order ID                    : {alert[keywords_json['runId']]} \n" + \
-            f"Run number                  : {alert[keywords_json['runNo']]} \n" + \
-            f"Order Date                  : {status.statuses[0].order_date} \n \n" + \
-            f"Ticket Notes                : {alert[keywords_json['notes']]} \n \n" + \
-            f"Job Output and Log are attached  \n \n" + \
-            f"The job can be seen on the {'Helix' if ctm_is_helix else ''} " + \
-            f"Control-M Self Service site. Click the link below. \n" + \
-            f"\n" + \
-            (f"https://{ctmweb}/ControlM/#Neighborhood:id={alert[keywords_json['runId']]}&ctm={alert[keywords_json['server']]}&name={alert[keywords_json['jobName']]}"+ \
-            f"&date={status.statuses[0].order_date}&direction=3&radius=3" \
-            if alert_is_job else "This alert is not job related") + "\n\n" + \
-            f"Ticket created automatically by {'Helix' if ctm_is_helix else ''} Control-M" + \
-            f" for {alert[keywords_json['server']]}:{alert[keywords_json['runId']]}::{alert[keywords_json['runNo']]}"
+    buildPayload(alert, config, alert_is_job, status, logger)
 
     output = ctmOutputFile(monitor,alert[keywords_json['jobName']], 
                 alert[keywords_json['server']],alert[keywords_json['runId']],
                 alert[keywords_json['runNo']], dbg_logger)
     out_name = f"output_{alert[keywords_json['runId']]}_{alert[keywords_json['runNo']]}.txt"
 
-    output_file = writeFile4Attach(out_name, None, dbg_logger)
+    output_file = writeFile4Attach(out_name, output, '', dbg_logger)
+
+    log = ctmOutputFile(monitor,alert[keywords_json['jobName']], 
+                alert[keywords_json['server']],alert[keywords_json['runId']],
+                alert[keywords_json['runNo']], dbg_logger)
+    log_name = f"output_{alert[keywords_json['runId']]}_{alert[keywords_json['runNo']]}.txt"
+
+    log_file = writeFile4Attach(out_name, output, '', dbg_logger)
 
 else:
     dbg_logger.info("Alert is NOT job alert.")
     alert_is_job = False
-    tkt_comments =  \
-            f"Agent Name                  : {alert[keywords_json['host']]} \n" + \
-            f"Ticket Notes                : {alert[keywords_json['notes']]} \n \n"
 
-tkt_work_notes = 
-tkt_payload= {'short_description': tkt_short_description,
-    'assignment_group': tkt_assigned_group,
-    'urgency': tkt_urgency,
-    'impact': tkt_impact,
-    'comments': tkt_comments, 
-    'watch_list': tkt_watch_list, 
-    'category': tkt_category, 
-    'caller_id': tkt_id_caller, 
-    'work_notes': tkt_work_notes,
-    'work_notes_list': tkt_work_list
-    }
+
+
 
     # Create a new incident record
 result = snow_incidents.create(payload=snow_payload)

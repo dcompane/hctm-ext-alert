@@ -160,21 +160,22 @@ def ctmlogFile(monitor, job_name, server, run_id, run_no, logger):
 # Write file to disk for attachment to case
 import os
 import tempfile
-def writeFile4Attach(file_name, content, directory, logger):
-        if not os.path.exists(directory):
-             directory=tempfile.gettempdir()
-        file_2write =directory+os.sep+file_name
-        fh = open(file_2write,'w')
-        try:
-            # Print message before writing
-            logger.debug(f'Writing data to file {file_2write}')
-            # Write data to the temporary file
-            fh.write(content)
-            # Close the file after writing
-            fh.close()
-        finally:
-            # Print a message after writing
-            logger.debug(f"File {file_2write} written")
+def writeFile4Attach(file_name, content, directory: str, logger):
+    if not os.path.exists(directory):
+            directory=tempfile.gettempdir()
+    file_2write =directory+os.sep+file_name
+    fh = open(file_2write,'w')
+    try:
+        # Print message before writing
+        logger.debug(f'Writing data to file {file_2write}')
+        # Write data to the temporary file
+        fh.write(content)
+        # Close the file after writing
+        fh.close()
+    finally:
+        # Print a message after writing
+        logger.debug(f"File {file_2write} written")
+   
     return file_2write
 
 

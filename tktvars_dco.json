@@ -17,10 +17,11 @@
     "comment20": "These are config vars to access the Incident Management system",
     "comment21": "may need additional customization depending on the ticketing system",
     "comment22": "as this was developed for Service Now",
-    "tkturl": "helixtrialsjc105-or1-dev.onbmc.com",
+    "comment23": "tkturl: helixtrialsjc105-or1-dev.onbmc.com",
+    "tkturl": "mobility228-dsom-rest.trybmc.com",
     "tktpath": "HPD:IncidentInterface_Create",
-    "verifySSL": "no",
-    "tktuser": "Liam",
+    "verifySSL": "yes",
+    "tktuser": "Allen",
     "tktpasswd": "Password_1234"
     },
   "SNOWvars": {
