@@ -1,6 +1,7 @@
 
 from remedy_py.RemedyAPIClient import RemedyClient as itsm_cli
-
+import extalert_functions
+from extalert_functions import dbg_assign_var
 # To write the log and output to files for attaching.
 import tempfile
 import os
@@ -19,21 +20,23 @@ def crtTkt (itsm_client: itsm_cli, itsm_form, itsm_payload, logger):
     incident_id = incident["values"]["Incident Number"]
     return incident_id, None
 
-def attachFile(*args):
-    pass
+def attachFile(itsm_client: itsm_cli, itsm_incident_id, itsm_filepath, itsm_filename, itsm_file_description ,logger):
+    logger.debug(f'Attaching {itsm_file_description}: {itsm_filepath+os.sep+itsm_filename}')
+    itsm_client.incident_file("HPD:Help Desk", itsm_incident_id, itsm_filepath, itsm_filename, content_type='text/plain' ,details=itsm_file_description)
+    
     return None
 
 def buildPayload(alert, config, is_job, status, logger):
 
     #### Build Ticket fields
-    tkt_urgency=dbg_assign_var('1-Critical', 'Ticket Urgency', dbg_logger)
-    tkt_impact=dbg_assign_var('1-Extensive/Widespread', 'Ticket Impact', dbg_logger)
+    tkt_urgency=dbg_assign_var('1-Critical', 'Ticket Urgency', logger)
+    tkt_impact=dbg_assign_var('1-Extensive/Widespread', 'Ticket Impact', logger)
     tkt_short_description=dbg_assign_var((f"{alert[keywords_json['jobName']]} " if is_job else "") + 
-          f"{alert[keywords_json['message']]}",'Ticket Short Description', dbg_logger)
+          f"{alert[keywords_json['message']]}",'Ticket Short Description', logger)
 
     if is_job:
         ctmweb=config['ctmvars']['ctmweb']
-        tkt_category=dbg_assign_var('User Service Restoration', 'Service Type', dbg_logger)
+        tkt_category=dbg_assign_var('User Service Restoration', 'Service Type', logger)
     
         tkt_comments =  \
             f"Agent Name                  : {alert[keywords_json['host']]} \n" + \
@@ -54,7 +57,7 @@ def buildPayload(alert, config, is_job, status, logger):
             f" for {alert[keywords_json['server']]}:{alert[keywords_json['runId']]}::{alert[keywords_json['runNo']]}"
     
     else:
-        tkt_category=dbg_assign_var('Infrastructure Service Restoration', 'Service Type', dbg_logger)
+        tkt_category=dbg_assign_var('Infrastructure Service Restoration', 'Service Type', logger)
         tkt_comments = \
             f"Agent Name                  : {alert[keywords_json['host']]} \n" + \
             f"Order Date                  : {status.statuses[0].order_date} \n \n" + \

@@ -13,6 +13,17 @@
     "comment16": "Ticket Solution should be BHITSM (for BMC Helix ITSM), SNOW (for Service Now). Others to be developed as needed.",
     "ticket_sol": "BHITSM"
     },
+  "tktvars": {
+    "comment20": "These are config vars to access the Incident Management system",
+    "comment21": "may need additional customization depending on the ticketing system",
+    "comment22": "as this was developed for Service Now",
+    "comment23": "tkturl: helixtrialsjc105-or1-dev.onbmc.com",
+    "tkturl": "mobility228-dsom-rest.trybmc.com",
+    "tktport": 443,
+    "verifySSL": "yes",
+    "tktuser": "Allen",
+    "tktpasswd": "Password_1234"
+    },
   "BHITSMvars": {
     "comment20": "These are config vars to access the Incident Management system",
     "comment21": "may need additional customization depending on the ticketing system",

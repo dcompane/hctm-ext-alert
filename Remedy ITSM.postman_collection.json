@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "9a686876-14ce-499f-86b9-b6ffd32933b8",
+		"name": "Remedy ITSM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12849474"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{host}}:{{port}}/api/jwt/login",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"jwt",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HPD Create Incident",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"incidentNumber\", jsonData.values['Incident Number']);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "AR-JWT {{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"values\":     {\r\n        \"z1D_Action\":\"CREATE\",\r\n        \"Last_Name\":\"Allbrook\",\r\n        \"First_Name\":\"Allen\",\r\n        \"Description\":\"Test REST API Incident test via Helix Control-M alerts\",\r\n        \"Impact\": \"1-Extensive/Widespread\",\r\n        \"Urgency\": \"1-Critical\",\r\n        \"Reported Source\": \"Other\",\r\n        \"Submitter\": \"Allen\",\r\n        \"Service_Type\": \"User Service Restoration\",\r\n        \"Company\": \"Calbro Services\",\r\n        \"z1D_Details\": \"Incident Created using REST API\",\r\n        \"z1D_WorklogDetails\": \"Attachment using REST API\",\r\n        \"z1D_View_Access\": \"Internal\",\r\n        \"z1D_Secure_Log\": \"Yes\",\r\n        \"z1D_Activity_Type\": \"Incident Task/Action\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}:{{port}}/api/arsys/v1/entry/HPD:IncidentInterface_Create?fields=values(Incident Number, Request ID)",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"arsys",
+						"v1",
+						"entry",
+						"HPD:IncidentInterface_Create"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "values(Incident Number, Request ID)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HPD Help dek Get advanced query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"entryID\", jsonData.entries[0].values['Entry ID']);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "AR-JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}:{{port}}/api/arsys/v1/entry/HPD:Help Desk?fields=values(Entry ID, Incident Number)&q='Incident Number'=\"{{incidentNumber}}\"",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"arsys",
+						"v1",
+						"entry",
+						"HPD:Help Desk"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "values(Entry ID, Incident Number)"
+						},
+						{
+							"key": "q",
+							"value": "'Incident Number'=\"{{incidentNumber}}\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HPD Help dek Get advanced query all fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"entryID\", jsonData.entries[0].values['Entry ID']);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "AR-JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}:{{port}}/api/arsys/v1/entry/HPD:Help Desk?q='Incident Number'=\"{{incidentNumber}}\"",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"arsys",
+						"v1",
+						"entry",
+						"HPD:Help Desk"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "'Incident Number'=\"{{incidentNumber}}\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HPDAttachModify",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "AR-JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entry",
+							"type": "file",
+							"src": "/C:/Users/dcompane/OneDrive/BMC/remedy-test/inc_entry.json"
+						},
+						{
+							"key": "attach-z2AF_Act_Attachment_1",
+							"type": "file",
+							"src": "/C:/Users/dcompane/Downloads/output_09vuc_00006.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{host}}:{{port}}/api/arsys/v1/entry/HPD:Help Desk/{{entryID}}",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"arsys",
+						"v1",
+						"entry",
+						"HPD:Help Desk",
+						"{{entryID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

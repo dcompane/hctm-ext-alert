@@ -1,3 +1,5 @@
+global debug
+
 #########################################
 # Evaluating make Python dict from CTM Alerts
 #########################################
@@ -76,15 +78,16 @@ def init_dbg_log():
     dbg_logger.setLevel(logging.INFO)
     dbg_logger.info('*' * 50)
     dbg_logger.info('*' * 50)
-    dbg_logger.info('Startup Log setting established')
+    dbg_logger.info('Startup Log setting established. Initial level is INFO')
     
     return dbg_logger
 
 #########################################
 # Write DBG info on assigning variable
 #########################################
-def dbg_assign_var(to_assign, what_is_this,logger):
-    logger.debug (f'{what_is_this}: {to_assign}')
+def dbg_assign_var(to_assign, what_is_this, logger, debug):
+    if debug:
+        logger.debug (f'{what_is_this}: {to_assign}')
     return to_assign
 
 
@@ -104,7 +107,7 @@ def ctmConnAAPI(host_name, token, logger):
     
 #########################################
 # Retrieve output
-def ctmOutputFile(monitor, job_name, server, run_id, run_no, logger):
+def ctmOutputFile(monitor, job_name, server, run_id, run_no, logger, debug):
     logger.debug("Retrieving output using AAPI")
     # Adding header for output file
     job_output = \
@@ -115,7 +118,7 @@ def ctmOutputFile(monitor, job_name, server, run_id, run_no, logger):
         f"*" * 70 + '\n'
 
     # Retrieve output from the (Helix) Control-M environment
-    output = dbg_assign_var(monitor.get_output(f"{server}:{run_id}", 
+    output = dbg_assign_var(debug, monitor.get_output(f"{server}:{run_id}", 
             run_no=run_no), "Output of job", logger)
 
     # If there is no output, say it
@@ -132,7 +135,7 @@ def ctmOutputFile(monitor, job_name, server, run_id, run_no, logger):
 
 #########################################
 # Retrieve log
-def ctmlogFile(monitor, job_name, server, run_id, run_no, logger):
+def ctmlogFile(monitor, job_name, server, run_id, run_no, logger, debug):
     logger.debug("Retrieving log using AAPI")
     # Adding header for log file
     job_log = \
@@ -141,7 +144,7 @@ def ctmlogFile(monitor, job_name, server, run_id, run_no, logger):
         f"LOG includes all executions to this point (runcount: {run_no}" + '\n'+ \
         f"*" * 70 + '\n'
     # Retrieve log from the (Helix) Control-M environment
-    log = dbg_assign_var(monitor.get_log(f"{server}:{run_id}"), "Log of Job", dbg_logger)
+    log = dbg_assign_var(debug, monitor.get_log(f"{server}:{run_id}"), "Log of Job", dbg_logger)
 
     # If there is no output, say it
     if log is None :
@@ -160,7 +163,7 @@ def ctmlogFile(monitor, job_name, server, run_id, run_no, logger):
 # Write file to disk for attachment to case
 import os
 import tempfile
-def writeFile4Attach(file_name, content, directory: str, logger):
+def writeFile4Attach(file_name, content, directory: str, logger, debug):
     if not os.path.exists(directory):
             directory=tempfile.gettempdir()
     file_2write =directory+os.sep+file_name

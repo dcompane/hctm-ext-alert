@@ -1,0 +1,1 @@
+eventType: "I" id: "161275" server: "IN01" fileName: runId: "0aa28" severity: "V" status: "0" time: "20221230200602" user: updateTime:  message: "Ended not OK" runAs: "saasAgSand" subApplication: "DCO_JobThatFails" application: "DCO" jobName: "DCO_JobThat_Fails" host: "dc01-saasagsand" type: "R" closedByControlM: "" ticketNumber: "" runNo: "00183" notes: ""
